@@ -8,6 +8,7 @@ export const AboutScreen = () => {
     return (
         <Container>
             <Text style={styles.text}>Nicolás Herrera</Text>
+            <Text style={styles.text}>FullStack Developer</Text>
         </Container>
     );
 }
