@@ -19,8 +19,9 @@ const Button = ({ mode, style, children, ...props }) => (
 
 const styles = StyleSheet.create({
   button: {
-    width: '100%',
+    width: '90%',
     marginVertical: 10,
+    alignSelf: 'center'
   },
   text: {
     fontWeight: 'bold',
