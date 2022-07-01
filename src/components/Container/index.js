@@ -1,10 +1,12 @@
 import React from "react";
-import { KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
 export const Container = ({ children }) => (
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
-        {children}
-      </KeyboardAvoidingView>
+    
+        <ScrollView contentContainerStyle={styles.container}>
+          {children}
+        </ScrollView>
+    
   );
 
 const styles = StyleSheet.create({
@@ -12,9 +14,9 @@ const styles = StyleSheet.create({
       flex: 1,
       padding: 20,
       width: '100%',
-      maxWidth: 340,
       alignSelf: 'center',
       alignItems: 'center',
       justifyContent: 'center',
+      height:'auto'
     },
   });

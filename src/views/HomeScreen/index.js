@@ -8,7 +8,7 @@ export const HomeScreen = ({navigation}) => {
     const navigationButtons = [
         {
             text: "ENCUESTA",
-            path: "PolScreen"
+            path: "PollScreen"
         },
         {
             text: "RESULTADOS",
