@@ -53,14 +53,13 @@ export const PollScreen = ({navigation}) => {
 
     const getMusicalStyles = async() => {
         const musicalStyle = await clientMethod.get("musical-style/list");
-        console.log(musicalStyle)
         if (musicalStyle.error){
             showAlert("Sin datos", "No se pudo cargar los datos debido a un error", "Aceptar");
         }else{
             if (musicalStyle.status == 200){
                 setMusicalStyles(tranformMusicalStyles(musicalStyle.data));
             }else{
-                showAlert("Sin datos", "No se pudo cargar los datos ya que no hay resppuesta correcta del servidor", "Aceptar");
+                showAlert("Sin datos", "No se pudo cargar los datos ya que no hay respuesta correcta del servidor", "Aceptar");
             }
         }
         setIsLoading(false);
