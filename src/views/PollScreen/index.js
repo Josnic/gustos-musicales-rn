@@ -117,13 +117,11 @@ export const PollScreen = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
-    containerInput: {
-      width: '100%',
-      marginVertical: 12,
-    },
+
     input: {
       width: '100%',
       alignSelf:'center',
       marginBottom: 10
     }
+    
   });
