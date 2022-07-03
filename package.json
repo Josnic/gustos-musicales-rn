@@ -7,7 +7,12 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "bundle-dev:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "generate:apk:debug": "npm run bundle-dev:android && cd android && gradlew clean && gradlew assembleDebug",
+    "build:aab": "cd android && gradlew clean && gradlew bundleRelease",
+    "android:release": "react-native run-android --variant=release",
+    "generate:apk:release": "cd android && gradlew clean && gradlew assembleRelease"
   },
   "dependencies": {
     "@react-native-community/netinfo": "^9.3.0",
