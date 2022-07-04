@@ -4,7 +4,7 @@ Aplicación Android y iOS desarrollada usando `React 17.0.2` y `React Native 0.6
 
 ## Configuración de ambiente de desarrollo Android/iOS
 
-Se debe configurar en la máquina de desarrollo un entorno de trabajo para desarrollo de apicaciones Android: `SDK Android` y `Java 8` para Android; para iOS se debe instalar XCode 12. Además, al ser una aplicación de `React Native` es necesario instalar `NodeJS`. Para este proyecto, las versiones de `NodeJS` y `NPM` usadas son: 
+Se debe configurar en la máquina de desarrollo un entorno de trabajo para desarrollo de apicaciones Android: `SDK Android` y `Java 8` para Android; para iOS se debe instalar XCode 12 o supeior y Cocoapods. Además, al ser una aplicación de `React Native` es necesario instalar `NodeJS`. Para este proyecto, las versiones de `NodeJS` y `NPM` usadas son: 
 ```
 NodeJS v12.20.0
 npm 6.14.8
@@ -17,6 +17,11 @@ npm install
 ```
 Este comando de instalará todas las dependencias del proyecto.
 
+NOTA: Para iOS debe usar también el siguiente comando para instalar dependecias exclusivas para iOS:
+
+```
+npm install npx pod-install
+```
 ## Comandos
 
 * Comando para iniciar la aplicación en modo desarrollo en el emulador o en el dispositivo físico.
@@ -29,10 +34,15 @@ npm run bundle-dev:android
 ```
 ### Generar un APK distribuible en modo Debug (Android)
 
-1. Ejecutar el comando: 
+1. Ejecutar el comando dependiendo del sistema operativo de trabajo: 
 ```
-npm run generate:apk:debug
+npm run windows:generate:apk:debug
 ```
+o
+```
+npm run mac:generate:apk:debug
+```
+
 Esto permite crear una versión del APK distribuible en depuración, que no depende del servidor de Metro.
 
 2. Una vez creado el APK, se puede localizar en la siguiente ruta:
@@ -45,23 +55,30 @@ Esto permite crear una versión del APK distribuible en depuración, que no depe
 ## Preparar y enviar la Aplicación
 ### Generar aplicación en AAB (Android App Bundle) o APK (Android)
 
-1. Este comando ejecuta internamente el comando ```gradlew assembleDebug``` el cual agrupa todo el JavaScript necesario para ejecutar la aplicación en formato AAB.
+1. Este comando ejecuta internamente el comando ```gradlew assembleDebug``` el cual agrupa todo el JavaScript necesario para ejecutar la aplicación en formato AAB. Se debe ejecutar el comando que corresponda al sistema operativo en el que se esté trabajando:
 ```
-npm run build:aab
+npm run windows:build:aab
+```
+o 
+```
+npm run mac:build:aab
 ```
 2. El AAB generado esta disponible en la ruta y esta listo para cargarse en Google Play.
 ```
 android/app/build/outputs/bundle/release/app.aab
 ```
-3. Comando para instalar la versión de lanzamiento de la aplicación.
+3. Comando para instalar la versión de lanzamiento de la aplicación. 
 ```
 npm run android:release
 ```
-4. Comando que permite crear una versión APK lista para ser enviada a Google Play, ejecuta internamente el comando ```gradlew assembleRelease```
+4. Comando que permite crear una versión APK lista para ser enviada a Google Play, ejecuta internamente el comando ```gradlew assembleRelease```. Se debe ejecutar de acuerdo al sistema operativo de trabajo:
 ```
-npm run generate:apk:release
+npm run windows:generate:apk:release
 ```
-NOTA: El alias y el password para la firma en release es ```gustosmusicales```
+o
+```
+npm run mac:generate:apk:release
+```
 
 ### Generar aplicación para iOS.
 
